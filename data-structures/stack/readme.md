@@ -1,10 +1,11 @@
 Stack inplementation in Go
 
-1. Array implementation
-2. Link implementation
+1、 Array implementation
+2、 Link implementation
 
+---
 
-1. Array implementation benchmark result:
+1、 Array implementation benchmark result:
 
 ```
 PASS
@@ -19,4 +20,4 @@ BenchmarkPop-4 	20000000	       116 ns/op
 ok  	github.com/holys/CS/data-structures/stack	17.466s
 ```
 
-2. Link implementation
+2、 Link implementation
