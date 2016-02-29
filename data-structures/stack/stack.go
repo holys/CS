@@ -6,7 +6,7 @@ type Stack interface {
 	Push(item interface{})
 	Pop() (item interface{})
 	IsEmpty() bool
-	Peak() interface{}
+	Peek() interface{}
 	Len() int // unlimited?
 }
 
@@ -46,7 +46,7 @@ func (s *arrayImplements) IsEmpty() bool {
 	return s.len == 0
 }
 
-func (s *arrayImplements) Peak() interface{} {
+func (s *arrayImplements) Peek() interface{} {
 	s.lock.Lock()
 	defer s.lock.Unlock()
 	return s.items[s.len-1]
