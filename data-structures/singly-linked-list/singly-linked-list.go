@@ -1,7 +1,5 @@
 package list
 
-import "fmt"
-
 // Node represents an node in the list
 type Node struct {
 	next  *Node
@@ -115,14 +113,21 @@ func (l *SinglyLinkedList) InsertAfter(n, an *Node) {
 
 // Remove removes a node from the list
 func (l *SinglyLinkedList) Remove(n *Node) {
+	if l.front == nil {
+		return
+	}
+
 	if l.front == n {
 		l.front = n.next
 	} else {
 		current := l.front
-		for current != nil && current.next != n {
+		for current != nil && current.next != nil && current.next != n {
 			current = current.next
 		}
-		// for now: current.next == n
+		// 到了这一步，如果 current.next 不是 n, 意味着 n 不存在
+		if current.next != n {
+			return
+		}
 		current.next = n.next
 	}
 
@@ -148,23 +153,19 @@ func (l *SinglyLinkedList) GetAtPos(index int) *Node {
 func (l *SinglyLinkedList) Find(value interface{}) *Node {
 	// 1. front 为空，直接返回 nil
 	// 2. front 不为空，value 不存在，返回 nil
+
 	if l.front == nil {
 		return nil
 	}
-	current := l.front
 
-	for current.next != nil {
-		fmt.Println("===========>", current.Value, value)
-		if current.Value == value {
-			return current
-		}
+	current := l.front
+	for current.Value != value && current.next != nil {
 		current = current.next
 	}
-
+	// 到了这一步，要么找到，要么不存在
 	if current.Value == value {
 		return current
 	}
-
 	return nil
 }
 
