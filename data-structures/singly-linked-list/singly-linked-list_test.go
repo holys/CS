@@ -2,55 +2,6 @@ package list
 
 import "testing"
 
-// func TestFront(t *testing.T) {
-
-// }
-
-// func TestBack(t *testing.T) {
-
-// }
-
-// func TestAppend(t *testing.T) {
-// 	l := New()
-// 	n1 := &Node{Value: 1}
-// 	n2 := &Node{Value: 2}
-// 	l.Append(n1)
-// 	l.Append(n2)
-
-// 	if l.length != 2 {
-// 		t.Error("should be %d, got %d", 2, l.length)
-// 	}
-
-// 	l.init()
-
-// 	for i := 0; i < 10000; i++ {
-// 		l.Append(&Node{Value: i})
-// 	}
-// 	if l.length != 10000 {
-// 		t.Errorf("should be 10000, got %d", l.length)
-// 	}
-
-// 	l.init()
-// 	for i := 0; i < 10000; i++ {
-// 		l.Prepend(&Node{Value: i})
-// 	}
-// 	if l.length != 10000 {
-// 		t.Errorf("should be 10000, got %d", l.length)
-// 	}
-// }
-
-// func TestPrepend(t *testing.T) {
-
-// }
-
-// func TestInsertBefore(t *testing.T) {
-
-// }
-
-// func TestInsertAfter(t *testing.T) {
-
-// }
-
 func BenchmarkAppend(b *testing.B) {
 	l := New()
 

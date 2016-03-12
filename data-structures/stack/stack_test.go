@@ -47,7 +47,7 @@ func BenchmarkPop(b *testing.B) {
 
 	b.ResetTimer()
 	b.Log(s.Peek())
-	for i := 0; i < b.N; i++ {
+	for !s.IsEmpty() {
 		s.Pop()
 	}
 }
